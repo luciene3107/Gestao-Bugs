@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triagem &mdash; Gestão Inteligente de Falhas de Testes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="6" fill="url(#logoGrad)"/>
+        <path d="M8 12.5L10.5 15L16 9" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="logoGrad" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7C6FF0"/>
+            <stop offset="1" stop-color="#5B8DEF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </span>
+    <div class="brand-text">
+      <span class="brand-title">Triagem</span>
+      <span class="brand-sub">gestão inteligente de falhas de testes</span>
+    </div>
+  </div>
+  <nav class="topbar-nav">
+    <button class="nav-btn active" data-view="upload">Nova análise</button>
+    <button class="nav-btn" data-view="history">Histórico</button>
+  </nav>
+</header>
+
+<main class="app">
+
+  <!-- VIEW: UPLOAD -->
+  <section id="view-upload" class="view active">
+
+    <div class="hero">
+      <p class="eyebrow">01 — envie o log de execução</p>
+      <h1>Descubra o que realmente<br>quebrou a build.</h1>
+      <p class="hero-desc">
+        Arraste um log de falhas do Cypress ou Tosca (JSON). O sistema agrupa erros
+        parecidos por similaridade textual, classifica cada grupo com IA e aponta
+        se é <strong>bug real</strong>, <strong>teste instável</strong> ou <strong>problema de ambiente</strong>.
+      </p>
+    </div>
+
+    <div class="upload-panel">
+      <div id="dropzone" class="dropzone">
+        <input type="file" id="fileInput" accept="application/json,.json" hidden>
+        <div class="dropzone-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15V4M12 4L7.5 8.5M12 4l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="dropzone-title">Solte o arquivo .json aqui</p>
+        <p class="dropzone-sub">ou <button id="browseBtn" class="link-btn">selecione um arquivo</button></p>
+        <p class="dropzone-hint">Formato esperado: lista de objetos com <code>test_name</code> e <code>error_message</code></p>
+      </div>
+
+      <div class="upload-actions">
+        <button id="loadSampleBtn" class="btn-ghost">Usar log de exemplo</button>
+        <span id="fileStatus" class="file-status"></span>
+      </div>
+    </div>
+
+    <div id="loadingState" class="loading-state hidden">
+      <div class="loading-bars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p id="loadingText">Analisando falhas…</p>
+    </div>
+
+    <div id="errorBanner" class="error-banner hidden"></div>
+
+  </section>
+
+  <!-- VIEW: RESULTADOS -->
+  <section id="view-results" class="view">
+
+    <div class="results-header">
+      <div>
+        <p class="eyebrow" id="resultsEyebrow">02 — resultado da triagem</p>
+        <h2 id="resultsFilename">arquivo.json</h2>
+      </div>
+      <button id="newAnalysisBtn" class="btn-ghost">Nova análise</button>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="statTotal">0</span>
+        <span class="stat-label">falhas totais</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statClusters">0</span>
+        <span class="stat-label">causas distintas</span>
+      </div>
+      <div class="stat-card accent-bug">
+        <span class="stat-value" id="statBugs">0</span>
+        <span class="stat-label">bugs reais</span>
+      </div>
+      <div class="stat-card accent-flaky">
+        <span class="stat-value" id="statFlaky">0</span>
+        <span class="stat-label">testes instáveis</span>
+      </div>
+      <div class="stat-card accent-env">
+        <span class="stat-value" id="statEnv">0</span>
+        <span class="stat-label">problema de ambiente</span>
+      </div>
+    </div>
+
+    <div class="content-grid">
+
+      <div class="clusters-column">
+        <h3 class="section-title">Grupos de falhas, por impacto</h3>
+        <div id="clustersList" class="clusters-list"></div>
+      </div>
+
+      <aside class="side-column">
+        <div class="panel">
+          <h3 class="section-title">Distribuição por classificação</h3>
+          <canvas id="classificationChart" height="200"></canvas>
+        </div>
+
+        <div class="panel">
+          <h3 class="section-title">Comparação de métricas de similaridade</h3>
+          <p class="panel-desc">Similaridade média entre todos os pares de mensagens de erro do log.</p>
+          <div id="metricsBars" class="metrics-bars"></div>
+        </div>
+      </aside>
+
+    </div>
+
+  </section>
+
+  <!-- VIEW: HISTÓRICO -->
+  <section id="view-history" class="view">
+    <p class="eyebrow">histórico</p>
+    <h2>Execuções analisadas</h2>
+    <div id="historyList" class="history-list"></div>
+  </section>
+
+</main>
+
+<div id="clusterModal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <button id="modalClose" class="modal-close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="/static/chart.umd.js"></script>
+<script src="/static/script.js"></script>
+</body>
+</html>

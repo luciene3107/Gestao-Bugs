@@ -1,0 +1,167 @@
+[
+  {
+    "test_name": "wishlist.spec.js > deve adicionar produto à lista de desejos",
+    "suite": "Wishlist",
+    "status": "failed",
+    "error_message": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'",
+    "stack_trace": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'\n  at wishlist.spec.js:19:12",
+    "duration_ms": 4310,
+    "timestamp": "2026-06-30T14:02:11Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "wishlist.spec.js > deve remover produto da lista de desejos",
+    "suite": "Wishlist",
+    "status": "failed",
+    "error_message": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'",
+    "stack_trace": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'\n  at wishlist.spec.js:34:12",
+    "duration_ms": 4287,
+    "timestamp": "2026-06-30T14:02:40Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "wishlist.spec.js > deve sincronizar wishlist entre dispositivos",
+    "suite": "Wishlist",
+    "status": "failed",
+    "error_message": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'",
+    "stack_trace": "AssertionError: Timed out retrying after 4000ms: expected '<button.wishlist-btn>' to have class 'active'\n  at wishlist.spec.js:52:12",
+    "duration_ms": 4402,
+    "timestamp": "2026-06-30T14:03:05Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "inventory.spec.js > deve reduzir estoque após compra",
+    "suite": "Estoque",
+    "status": "failed",
+    "error_message": "AssertionError: expected 47 to equal 46",
+    "stack_trace": "AssertionError: expected 47 to equal 46\n  at inventory.spec.js:61:18",
+    "duration_ms": 3120,
+    "timestamp": "2026-06-30T14:08:22Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "inventory.spec.js > deve bloquear compra sem estoque",
+    "suite": "Estoque",
+    "status": "failed",
+    "error_message": "AssertionError: expected '<button.buy-btn>' to be 'disabled'",
+    "stack_trace": "AssertionError: expected '<button.buy-btn>' to be 'disabled'\n  at inventory.spec.js:78:14",
+    "duration_ms": 2870,
+    "timestamp": "2026-06-30T14:09:01Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "shipping.spec.js > deve calcular frete para CEP válido",
+    "suite": "Frete",
+    "status": "failed",
+    "error_message": "Network error: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED",
+    "stack_trace": "FetchError: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED\n  at shipping.spec.js:40:15",
+    "duration_ms": 9120,
+    "timestamp": "2026-06-30T14:15:44Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "shipping.spec.js > deve exibir opções de frete expresso",
+    "suite": "Frete",
+    "status": "failed",
+    "error_message": "Network error: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED",
+    "stack_trace": "FetchError: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED\n  at shipping.spec.js:66:15",
+    "duration_ms": 9310,
+    "timestamp": "2026-06-30T14:16:12Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "shipping.spec.js > deve exibir frete grátis acima de R$200",
+    "suite": "Frete",
+    "status": "failed",
+    "error_message": "Network error: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED",
+    "stack_trace": "FetchError: request to https://api.correios.internal/frete failed, reason: connect ECONNREFUSED\n  at shipping.spec.js:90:15",
+    "duration_ms": 9205,
+    "timestamp": "2026-06-30T14:16:50Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "reviews.spec.js > deve publicar avaliação com nota e comentário",
+    "suite": "Avaliações",
+    "status": "failed",
+    "error_message": "cy.type() failed because this element is not visible.",
+    "stack_trace": "CypressError: cy.type() failed because this element is not visible.\n  at reviews.spec.js:24:10",
+    "duration_ms": 2650,
+    "timestamp": "2026-06-30T14:22:33Z",
+    "environment": "production",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "reviews.spec.js > deve editar avaliação existente",
+    "suite": "Avaliações",
+    "status": "failed",
+    "error_message": "cy.type() failed because this element is not visible.",
+    "stack_trace": "CypressError: cy.type() failed because this element is not visible.\n  at reviews.spec.js:47:10",
+    "duration_ms": 2718,
+    "timestamp": "2026-06-30T14:23:01Z",
+    "environment": "production",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "coupon.spec.js > deve aplicar cupom expirado e mostrar erro",
+    "suite": "Cupons",
+    "status": "failed",
+    "error_message": "AssertionError: expected '<div.error-message>' to contain text 'Cupom expirado', but the text was ''",
+    "stack_trace": "AssertionError: expected '<div.error-message>' to contain text 'Cupom expirado', but the text was ''\n  at coupon.spec.js:33:20",
+    "duration_ms": 3340,
+    "timestamp": "2026-06-30T14:28:15Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "account.spec.js > deve excluir conta do usuário",
+    "suite": "Conta",
+    "status": "failed",
+    "error_message": "TypeError: Cannot read properties of null (reading 'id')",
+    "stack_trace": "TypeError: Cannot read properties of null (reading 'id')\n  at account.spec.js:88:24",
+    "duration_ms": 1980,
+    "timestamp": "2026-06-30T14:35:50Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "account.spec.js > deve exportar dados do usuário (LGPD)",
+    "suite": "Conta",
+    "status": "failed",
+    "error_message": "TypeError: Cannot read properties of null (reading 'id')",
+    "stack_trace": "TypeError: Cannot read properties of null (reading 'id')\n  at account.spec.js:105:24",
+    "duration_ms": 2015,
+    "timestamp": "2026-06-30T14:36:22Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "chat.spec.js > deve enviar mensagem para o suporte",
+    "suite": "Chat de Suporte",
+    "status": "failed",
+    "error_message": "cy.wait() timed out waiting 6000ms for the 1st request to the route: 'sendMessage'. No request ever occurred.",
+    "stack_trace": "CypressError: cy.wait() timed out waiting 6000ms for the 1st request to the route: 'sendMessage'. No request ever occurred.\n  at chat.spec.js:29:10",
+    "duration_ms": 6210,
+    "timestamp": "2026-06-30T14:41:07Z",
+    "environment": "production",
+    "run_id": "run-207"
+  },
+  {
+    "test_name": "gift-card.spec.js > deve resgatar vale-presente válido",
+    "suite": "Vale-presente",
+    "status": "failed",
+    "error_message": "AssertionError: expected '$0.00' to equal '$50.00'",
+    "stack_trace": "AssertionError: expected '$0.00' to equal '$50.00'\n  at gift-card.spec.js:52:18",
+    "duration_ms": 3005,
+    "timestamp": "2026-06-30T14:47:19Z",
+    "environment": "staging",
+    "run_id": "run-207"
+  }
+]

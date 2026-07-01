@@ -1,0 +1,167 @@
+[
+  {
+    "test_name": "login.spec.js > deve logar com credenciais válidas",
+    "suite": "Autenticação",
+    "status": "failed",
+    "error_message": "Timed out retrying after 4000ms: expected to find element: '#login-button', but never found it.",
+    "stack_trace": "CypressError: Timed out retrying after 4000ms: expected to find element: '#login-button', but never found it.\n  at Context.eq (cypress/support/commands.js:12:5)\n  at login.spec.js:8:10",
+    "duration_ms": 4230,
+    "timestamp": "2026-06-29T09:12:03Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "login.spec.js > deve exibir erro com senha inválida",
+    "suite": "Autenticação",
+    "status": "failed",
+    "error_message": "Timed out retrying after 4000ms: expected to find element: '#login-button', but never found it.",
+    "stack_trace": "CypressError: Timed out retrying after 4000ms: expected to find element: '#login-button', but never found it.\n  at Context.eq (cypress/support/commands.js:12:5)\n  at login.spec.js:22:10",
+    "duration_ms": 4198,
+    "timestamp": "2026-06-29T09:12:10Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "checkout.spec.js > deve finalizar compra com cartão de crédito",
+    "suite": "Checkout",
+    "status": "failed",
+    "error_message": "AssertionError: expected '$0.00' to equal '$149.90'",
+    "stack_trace": "AssertionError: expected '$0.00' to equal '$149.90'\n  at checkout.spec.js:45:20",
+    "duration_ms": 6820,
+    "timestamp": "2026-06-29T09:15:44Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "checkout.spec.js > deve aplicar cupom de desconto",
+    "suite": "Checkout",
+    "status": "failed",
+    "error_message": "AssertionError: expected '$149.90' to equal '$134.91'",
+    "stack_trace": "AssertionError: expected '$149.90' to equal '$134.91'\n  at checkout.spec.js:68:20",
+    "duration_ms": 5910,
+    "timestamp": "2026-06-29T09:16:02Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "profile.spec.js > deve atualizar avatar do usuário",
+    "suite": "Perfil",
+    "status": "failed",
+    "error_message": "cy.click() failed because this element is detached from the DOM.",
+    "stack_trace": "CypressError: cy.click() failed because this element is detached from the DOM.\n  at profile.spec.js:30:15",
+    "duration_ms": 3120,
+    "timestamp": "2026-06-29T09:20:11Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "profile.spec.js > deve remover avatar do usuário",
+    "suite": "Perfil",
+    "status": "failed",
+    "error_message": "cy.click() failed because this element is detached from the DOM.",
+    "stack_trace": "CypressError: cy.click() failed because this element is detached from the DOM.\n  at profile.spec.js:52:15",
+    "duration_ms": 3305,
+    "timestamp": "2026-06-29T09:20:40Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "search.spec.js > deve buscar produto por nome",
+    "suite": "Busca",
+    "status": "failed",
+    "error_message": "Timed out retrying after 4000ms: expected to find element: '.search-results-item', but never found it.",
+    "stack_trace": "CypressError: Timed out retrying after 4000ms: expected to find element: '.search-results-item', but never found it.\n  at search.spec.js:14:10",
+    "duration_ms": 4102,
+    "timestamp": "2026-06-29T09:25:33Z",
+    "environment": "production",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "search.spec.js > deve filtrar produto por categoria",
+    "suite": "Busca",
+    "status": "failed",
+    "error_message": "Timed out retrying after 4000ms: expected to find element: '.search-results-item', but never found it.",
+    "stack_trace": "CypressError: Timed out retrying after 4000ms: expected to find element: '.search-results-item', but never found it.\n  at search.spec.js:35:10",
+    "duration_ms": 4210,
+    "timestamp": "2026-06-29T09:26:01Z",
+    "environment": "production",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "payment.spec.js > deve processar pagamento via PIX",
+    "suite": "Pagamento",
+    "status": "failed",
+    "error_message": "Network error: request to https://api.payments.internal/pix failed, reason: connect ETIMEDOUT",
+    "stack_trace": "FetchError: request to https://api.payments.internal/pix failed, reason: connect ETIMEDOUT\n  at payment.spec.js:60:12",
+    "duration_ms": 10450,
+    "timestamp": "2026-06-29T09:30:18Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "payment.spec.js > deve processar pagamento via boleto",
+    "suite": "Pagamento",
+    "status": "failed",
+    "error_message": "Network error: request to https://api.payments.internal/boleto failed, reason: connect ETIMEDOUT",
+    "stack_trace": "FetchError: request to https://api.payments.internal/boleto failed, reason: connect ETIMEDOUT\n  at payment.spec.js:80:12",
+    "duration_ms": 10820,
+    "timestamp": "2026-06-29T09:31:02Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "notifications.spec.js > deve exibir notificação de novo pedido",
+    "suite": "Notificações",
+    "status": "failed",
+    "error_message": "AssertionError: Timed out retrying after 2000ms: expected '<div.toast>' to be 'visible'",
+    "stack_trace": "AssertionError: Timed out retrying after 2000ms: expected '<div.toast>' to be 'visible'\n  at notifications.spec.js:18:10",
+    "duration_ms": 2340,
+    "timestamp": "2026-06-29T09:33:20Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "cart.spec.js > deve adicionar item ao carrinho",
+    "suite": "Carrinho",
+    "status": "failed",
+    "error_message": "TypeError: Cannot read properties of undefined (reading 'quantity')",
+    "stack_trace": "TypeError: Cannot read properties of undefined (reading 'quantity')\n  at cart.spec.js:27:22",
+    "duration_ms": 1890,
+    "timestamp": "2026-06-29T09:36:55Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "cart.spec.js > deve remover item do carrinho",
+    "suite": "Carrinho",
+    "status": "failed",
+    "error_message": "TypeError: Cannot read properties of undefined (reading 'quantity')",
+    "stack_trace": "TypeError: Cannot read properties of undefined (reading 'quantity')\n  at cart.spec.js:41:22",
+    "duration_ms": 1795,
+    "timestamp": "2026-06-29T09:37:10Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "signup.spec.js > deve criar conta com e-mail válido",
+    "suite": "Autenticação",
+    "status": "failed",
+    "error_message": "Timed out retrying after 4000ms: expected to find element: '#signup-success', but never found it.",
+    "stack_trace": "CypressError: Timed out retrying after 4000ms: expected to find element: '#signup-success', but never found it.\n  at signup.spec.js:16:10",
+    "duration_ms": 4055,
+    "timestamp": "2026-06-29T09:40:00Z",
+    "environment": "staging",
+    "run_id": "run-101"
+  },
+  {
+    "test_name": "reports.spec.js > deve gerar relatório mensal em PDF",
+    "suite": "Relatórios",
+    "status": "failed",
+    "error_message": "cy.wait() timed out waiting 8000ms for the 1st request to the route: 'generateReport'. No request ever occurred.",
+    "stack_trace": "CypressError: cy.wait() timed out waiting 8000ms for the 1st request to the route: 'generateReport'. No request ever occurred.\n  at reports.spec.js:22:10",
+    "duration_ms": 8210,
+    "timestamp": "2026-06-29T09:44:15Z",
+    "environment": "production",
+    "run_id": "run-101"
+  }
+]
